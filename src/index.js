@@ -19,6 +19,10 @@ module.exports = (duplex) => {
     },
     writePB: (data, proto) => {
       // encode, writeLP
+    },
+
+    unwrap: () => {
+      // returns vanilla duplex again, terminates all reads/writes from this object
     }
   }
 }
