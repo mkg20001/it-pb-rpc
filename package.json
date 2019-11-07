@@ -5,7 +5,7 @@
       "node"
     ]
   },
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A convinience-wrapper arround protocol-buffers and lp-messages functions",
   "main": "src/index.js",
   "author": "Maciej Krüger <mkg20001@gmail.com>",
