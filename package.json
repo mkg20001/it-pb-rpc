@@ -1,9 +1,11 @@
 {
   "name": "it-pb-rpc",
   "template": {
-    "extends": ["node"]
+    "extends": [
+      "node"
+    ]
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A convinience-wrapper arround protocol-buffers and lp-messages functions",
   "main": "src/index.js",
   "author": "Maciej Krüger <mkg20001@gmail.com>",
