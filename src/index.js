@@ -10,10 +10,10 @@ module.exports = (duplex) => {
   let isDone = false
 
   const W = {
-    read: (bytes) => {
+    read: async (bytes) => {
       // just read
 
-      const { value, done } = shake.reader.next(bytes)
+      const { value, done } = await shake.reader.next(bytes)
 
       if (done && value.length < bytes) {
         throw new Error('Couldn\'t read enough bytes')
