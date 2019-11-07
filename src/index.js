@@ -21,6 +21,7 @@ module.exports = (duplex) => {
 
       isDone = done
 
+      if (!value) { throw new Error('Value is null') }
       return value
     },
     readLP: async (useBE32) => {
@@ -29,6 +30,7 @@ module.exports = (duplex) => {
 
       isDone = done
 
+      if (!value) { throw new Error('Value is null') }
       return value
     },
     readPB: async (proto) => {
@@ -37,6 +39,7 @@ module.exports = (duplex) => {
 
       isDone = done
 
+      if (!value) { throw new Error('Value is null') }
       return proto.decode(value)
     },
     write: (data) => {
