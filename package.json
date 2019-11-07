@@ -20,7 +20,15 @@
   },
   "dependencies": {
     "it-handshake": "^1.0.1",
-    "it-length-prefixed": "jacobheun/pull-length-prefixed#feat/fromReader",
+    "it-length-prefixed": "github:jacobheun/pull-length-prefixed#feat/fromReader",
     "mkgs-tool": "^0.1.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkg20001/it-pb-rpc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mkg20001/it-pb-rpc/issues"
+  },
+  "homepage": "https://github.com/mkg20001/it-pb-rpc#readme"
 }
