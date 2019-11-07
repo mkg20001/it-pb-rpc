@@ -19,6 +19,8 @@
     "nyc": "*"
   },
   "dependencies": {
+    "it-handshake": "^1.0.1",
+    "it-length-prefixed": "jacobheun/pull-length-prefixed#feat/fromReader",
     "mkgs-tool": "^0.1.3"
   }
 }
