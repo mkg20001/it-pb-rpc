@@ -5,7 +5,7 @@ const lp = require('it-length-prefixed')
 
 module.exports = (duplex) => {
   const shake = Shake(duplex)
-  const lpReader = lp.decodeFromReader(shake.reader)
+  const lpReader = lp.decode.fromReader(shake.reader)
 
   let isDone = false
 

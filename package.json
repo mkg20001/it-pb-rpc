@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "it-handshake": "^1.0.1",
-    "it-length-prefixed": "github:jacobheun/pull-length-prefixed#feat/fromReader"
+    "it-length-prefixed": "^3.0.0"
   },
   "repository": {
     "type": "git",
