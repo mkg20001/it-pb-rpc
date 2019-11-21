@@ -3,9 +3,9 @@
 const Shake = require('it-handshake')
 const lp = require('it-length-prefixed')
 
-module.exports = (duplex) => {
+module.exports = (duplex, opts = {}) => {
   const shake = Shake(duplex)
-  const lpReader = lp.decode.fromReader(shake.reader)
+  const lpReader = lp.decode.fromReader(shake.reader, { lengthDecoder: opts.lengthDecoder })
 
   let isDone = false
 
@@ -24,7 +24,7 @@ module.exports = (duplex) => {
       if (!value) { throw new Error('Value is null') }
       return value
     },
-    readLP: async (useBE32) => {
+    readLP: async () => {
       // read, decode
       const { value, done } = await lpReader.next()
 
@@ -46,9 +46,9 @@ module.exports = (duplex) => {
       // just write
       shake.writer.push(data)
     },
-    writeLP: (data, useBE32) => {
+    writeLP: (data) => {
       // encode, write
-      W.write(lp.encode.single(data))
+      W.write(lp.encode.single(data, { lengthEncoder: opts.lengthEncoder }))
     },
     writePB: (data, proto) => {
       // encode, writeLP

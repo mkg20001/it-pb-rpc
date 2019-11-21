@@ -4,6 +4,7 @@ const Pair = require('it-pair')
 const { collect } = require('streaming-iterables')
 const Wrap = require('..')
 const assert = require('assert').strict
+const { int32BEDecode, int32BEEncode } = require('it-length-prefixed')
 
 /* eslint-env mocha */
 /* eslint-disable require-await */
@@ -26,12 +27,30 @@ describe('it-pb-rpc', () => {
       assert.deepEqual(data, res.slice())
     })
 
-    it.skip('lp fixed', async () => {
+    it('lp fixed encode', async () => {
+      const duplex = Pair()
+      const wrap = Wrap(duplex, { lengthEncoder: int32BEEncode })
       const data = Buffer.from('hellllllllloooo')
 
-      w.writeLP(data, true)
-      const res = await w.readLP(true)
-      assert.deepEqual(data, res.slice())
+      wrap.writeLP(data)
+      const res = await wrap.read()
+      const length = Buffer.allocUnsafe(4)
+      length.writeInt32BE(data.length, 0)
+      const expected = Buffer.concat([length, data])
+      assert.deepEqual(res.slice(), expected)
+    })
+
+    it('lp fixed decode', async () => {
+      const duplex = Pair()
+      const wrap = Wrap(duplex, { lengthDecoder: int32BEDecode })
+      const data = Buffer.from('hellllllllloooo')
+      const length = Buffer.allocUnsafe(4)
+      length.writeInt32BE(data.length, 0)
+      const encoded = Buffer.concat([length, data])
+
+      wrap.write(encoded)
+      const res = await wrap.readLP()
+      assert.deepEqual(res.slice(), data)
     })
   })
 
