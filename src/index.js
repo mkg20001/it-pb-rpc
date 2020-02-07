@@ -38,7 +38,11 @@ module.exports = (duplex, opts = {}) => {
       const value = await W.readLP()
 
       if (!value) { throw new Error('Value is null') }
-      return proto.decode(value)
+
+      // Is this a buffer?
+      const buf = Buffer.isBuffer(value) ? value : value.slice()
+
+      return proto.decode(buf)
     },
     write: (data) => {
       // just write
