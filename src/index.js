@@ -35,12 +35,14 @@ module.exports = (duplex, opts = {}) => {
     },
     readPB: async (proto) => {
       // readLP, decode
-      const { value, done } = await W.readLP()
-
-      isDone = done
+      const value = await W.readLP()
 
       if (!value) { throw new Error('Value is null') }
-      return proto.decode(value)
+
+      // Is this a buffer?
+      const buf = Buffer.isBuffer(value) ? value : value.slice()
+
+      return proto.decode(buf)
     },
     write: (data) => {
       // just write
