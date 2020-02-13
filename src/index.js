@@ -5,7 +5,10 @@ const lp = require('it-length-prefixed')
 
 module.exports = (duplex, opts = {}) => {
   const shake = Shake(duplex)
-  const lpReader = lp.decode.fromReader(shake.reader, { lengthDecoder: opts.lengthDecoder })
+  const lpReader = lp.decode.fromReader(
+      shake.reader,
+      opts
+  )
 
   let isDone = false
 
@@ -50,7 +53,7 @@ module.exports = (duplex, opts = {}) => {
     },
     writeLP: (data) => {
       // encode, write
-      W.write(lp.encode.single(data, { lengthEncoder: opts.lengthEncoder }))
+      W.write(lp.encode.single(data, opts))
     },
     writePB: (data, proto) => {
       // encode, writeLP
