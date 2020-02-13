@@ -14,12 +14,12 @@ type WrappedDuplex = {
     unwrap(): any;
 }
 
-declare interface DecoderFunction {
+declare interface LengthDecoderFunction {
     (data: Buffer | BufferList): number;
     bytes: number;
 }
 
-declare interface EncoderFunction {
+declare interface LengthEncoderFunction {
     (value: Buffer, target: number, offset: number): number|Buffer;
     bytes: number;
 }
@@ -28,10 +28,10 @@ interface Opts {
     //encoding opts
     poolSize: number;
     minPoolSize: number;
-    lengthEncoder: EncoderFunction;
+    lengthEncoder: LengthEncoderFunction;
 
     //decoding opts
-    lengthDecoder: DecoderFunction;
+    lengthDecoder: LengthDecoderFunction;
     maxLengthLength: number;
     maxDataLength: number;
 }
