@@ -6,8 +6,9 @@
     ]
   },
   "version": "0.1.5",
-  "description": "A convinience-wrapper arround protocol-buffers and lp-messages functions",
+  "description": "A convenience-wrapper around protocol-buffers and lp-messages functions",
   "main": "src/index.js",
+  "types": "src/index.d.ts",
   "author": "Maciej Krüger <mkg20001@gmail.com>",
   "license": "MPL-2.0",
   "scripts": {
@@ -15,6 +16,7 @@
     "cov": "nyc mocha"
   },
   "devDependencies": {
+    "@types/bl": "^2.1.0",
     "it-pair": "^1.0.0",
     "mkgs-tool": "^0.1.6",
     "mocha": "*",
