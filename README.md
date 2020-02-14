@@ -4,7 +4,7 @@ A convinience-wrapper arround protocol-buffers and lp-messages functions
 
 # API
 
-- `wrap(duplex, opts)`: Wraps a duplex, returns below object (opts=Object with .lengthEncoder, .lengthDecoder from [it-length-prefixed api](https://www.npmjs.com/package/it-length-prefixed#api))
+- `wrap(duplex, opts)`: Wraps a duplex, returns below object (opts=Object with encode/decode opts from [it-length-prefixed api](https://www.npmjs.com/package/it-length-prefixed#api))
   - `.read(bytes)`: async, reads the given amount of bytes
   - `.readLP()`: async, reads one length-prefixed message
   - `.readPB(proto)`: async, reads one protocol-buffers length-prefixed message (proto=Object with .encode, .decode functions)

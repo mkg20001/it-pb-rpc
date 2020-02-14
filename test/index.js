@@ -52,6 +52,37 @@ describe('it-pb-rpc', () => {
       const res = await wrap.readLP()
       assert.deepEqual(res.slice(), data)
     })
+
+    it('lp exceeds max length decode', async () => {
+      const duplex = Pair()
+      const wrap = Wrap(duplex, { lengthDecoder: int32BEDecode, maxDataLength: 32 })
+      const data = Buffer.alloc(33, 1);
+      const length = Buffer.allocUnsafe(4)
+      length.writeInt32BE(data.length, 0)
+      const encoded = Buffer.concat([length, data])
+
+      wrap.write(encoded)
+      try {
+        await wrap.readLP()
+        assert.fail("Should not be able to read too long msg data")
+      } catch (e) {
+        assert.ok(true);
+      }
+    })
+
+    it('lp max length decode', async () => {
+      const duplex = Pair()
+      const wrap = Wrap(duplex, { lengthDecoder: int32BEDecode, maxDataLength: 5000 })
+      const data = Buffer.allocUnsafe(4000);
+      const length = Buffer.allocUnsafe(4)
+      length.writeInt32BE(data.length, 0)
+      const encoded = Buffer.concat([length, data])
+
+      wrap.write(encoded)
+      const res = await wrap.readLP()
+      assert.deepEqual(res.slice(), data)
+    })
+
   })
 
   describe('plain data', async () => {
