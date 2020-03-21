@@ -1,7 +1,6 @@
 'use strict'
 
 const Pair = require('it-pair')
-const { collect } = require('streaming-iterables')
 const Wrap = require('..')
 const assert = require('assert').strict
 const { int32BEDecode, int32BEEncode } = require('it-length-prefixed')
