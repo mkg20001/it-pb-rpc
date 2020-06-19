@@ -20,7 +20,7 @@ declare interface LengthDecoderFunction {
 }
 
 declare interface LengthEncoderFunction {
-    (value: Buffer, target: number, offset: number): number|Buffer;
+    (value: number, target: Buffer, offset: number): number|Buffer;
     bytes: number;
 }
 
