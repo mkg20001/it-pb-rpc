@@ -18,10 +18,10 @@
   "devDependencies": {
     "@types/bl": "^5.0.0",
     "it-pair": "^1.0.0",
-    "mkgs-tool": "^0.1.12",
+    "mkgs-tool": "^0.1.15",
     "mocha": "*",
     "nyc": "*",
-    "streaming-iterables": "^5.0.3"
+    "streaming-iterables": "^5.0.4"
   },
   "dependencies": {
     "is-buffer": "^2.0.5",
