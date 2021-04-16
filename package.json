@@ -16,7 +16,7 @@
     "cov": "nyc mocha"
   },
   "devDependencies": {
-    "@types/bl": "^2.1.0",
+    "@types/bl": "^5.0.0",
     "it-pair": "^1.0.0",
     "mkgs-tool": "^0.1.12",
     "mocha": "*",
@@ -24,9 +24,9 @@
     "streaming-iterables": "^5.0.3"
   },
   "dependencies": {
-    "is-buffer": "^2.0.4",
-    "it-handshake": "^1.0.2",
-    "it-length-prefixed": "^3.1.0"
+    "is-buffer": "^2.0.5",
+    "it-handshake": "^2.0.0",
+    "it-length-prefixed": "^5.0.2"
   },
   "repository": {
     "type": "git",
