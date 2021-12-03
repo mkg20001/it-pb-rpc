@@ -17,11 +17,14 @@
   },
   "devDependencies": {
     "@types/bl": "^5.0.0",
+    "bl": "^5.0.0",
+    "buffer": "^6.0.3",
     "it-pair": "^1.0.0",
     "mkgs-tool": "^0.1.15",
     "mocha": "*",
     "nyc": "*",
-    "streaming-iterables": "^5.0.4"
+    "streaming-iterables": "^5.0.4",
+    "uint8arrays": "^3.0.0"
   },
   "dependencies": {
     "is-buffer": "^2.0.5",

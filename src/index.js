@@ -44,7 +44,7 @@ module.exports = (duplex, opts = {}) => {
       if (!value) { throw new Error('Value is null') }
 
       // Is this a buffer?
-      const buf = isBuffer(value) ? value : value.slice()
+      const buf = isBuffer(value) || value instanceof Uint8Array ? value : value.slice()
 
       return proto.decode(buf)
     },
