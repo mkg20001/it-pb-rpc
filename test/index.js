@@ -13,8 +13,8 @@ const { Buffer } = require('buffer')
 /* eslint-disable require-await */
 
 const assertBytesEqual = (a, b) => {
-  a = a.slice()
-  b = b.slice()
+  a = a instanceof Uint8Array ? a : a.slice()
+  b = b instanceof Uint8Array ? b : b.slice()
 
   for (let i = 0; i < a.length; i++) {
     if (a[i] !== b[i]) {
