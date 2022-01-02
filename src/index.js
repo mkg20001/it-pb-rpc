@@ -1,6 +1,5 @@
 'use strict'
 
-const isBuffer = require('is-buffer')
 const Shake = require('it-handshake')
 const lp = require('it-length-prefixed')
 
@@ -43,8 +42,8 @@ module.exports = (duplex, opts = {}) => {
 
       if (!value) { throw new Error('Value is null') }
 
-      // Is this a buffer?
-      const buf = isBuffer(value) ? value : value.slice()
+      // Is this a Uint8Array?
+      const buf = value instanceof Uint8Array ? value : value.slice()
 
       return proto.decode(buf)
     },

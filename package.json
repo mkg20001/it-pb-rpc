@@ -16,17 +16,18 @@
     "cov": "nyc mocha"
   },
   "devDependencies": {
-    "@types/bl": "^5.0.0",
+    "@types/bl": "^5.0.2",
+    "bl": "^5.0.0",
+    "buffer": "^6.0.3",
     "it-pair": "^1.0.0",
-    "mkgs-tool": "^0.1.15",
     "mocha": "*",
     "nyc": "*",
-    "streaming-iterables": "^5.0.4"
+    "uint8arrays": "^3.0.0",
+    "mkgs-tool": "^0.1.23"
   },
   "dependencies": {
-    "is-buffer": "^2.0.5",
     "it-handshake": "^2.0.0",
-    "it-length-prefixed": "^5.0.2"
+    "it-length-prefixed": "^5.0.3"
   },
   "repository": {
     "type": "git",
